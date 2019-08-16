@@ -31,16 +31,9 @@ def community_ecg(self, weights=None, ens_size=16, min_weight=0.05):
     core = self.shell_index()
     ecore = [min(core[x.tuple[0]],core[x.tuple[1]]) for x in self.es]
     part.W = [W[i] if ecore[i]>1 else min_weight for i in range(len(ecore))]
+    part.CSI = 1-2*np.sum([min(1-i,i) for i in part.W])/len(part.W)
     return part
 ig.Graph.community_ecg = community_ecg
-
-## community strength index (CSI) computation
-def CSI(x):
-    D = 0
-    for i in x:
-        d = np.min([1-i,i])
-        D += d
-    return 1-2*D/len(x)
 
 ## Planted partition model with communities of equal expected size
 td = [1/comm]*comm
@@ -60,5 +53,5 @@ for r in range(runs):
     print('ARI with Infomap:',ARI(im,g.vs['class']),'with',max(im)+1,'communities')
     print('ARI with Louvain:',ARI(ml,g.vs['class']),'with',max(ml)+1,'communities')
     print('ARI with ECG:',ARI(ec.membership,g.vs['class']),'with',max(ec.membership)+1,'communities')
-    print('CSI:',CSI(ec.W))
+    print('CSI:',ec.CSI)
     print('mu:',1.0-ie/g.ecount())
