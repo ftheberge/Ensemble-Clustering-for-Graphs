@@ -82,23 +82,23 @@ $ python ECG_simple_example.py 500 5 .1 .03 3
 
 Run # 1
 ARI with Infomap: 0.0 with 1 communities
-ARI with Louvain: 0.6953561496847086 with 6 communities
-ARI with ECG: 0.641624374585536 with 6 communities
-CSI: 0.45982928623988506
-mu: 0.5489330389992642
+ARI with Louvain: 0.24617775616265852 with 9 communities
+ARI with ECG: 0.7539622612934246 with 5 communities
+CSI: 0.5084590400577411
+mu: 0.5521472392638036
 
 Run # 2
 ARI with Infomap: 0.0 with 1 communities
-ARI with Louvain: 0.35295567545816664 with 8 communities
-ARI with ECG: 0.7925731039231799 with 5 communities
-CSI: 0.5190745841531041
-mu: 0.5474870327311752
+ARI with Louvain: 0.5421712111811192 with 5 communities
+ARI with ECG: 0.7361120897981182 with 5 communities
+CSI: 0.5433250355618737
+mu: 0.5476529160739687
 
 Run # 3
 ARI with Infomap: 0.0 with 1 communities
-ARI with Louvain: 0.6735717232958122 with 5 communities
-ARI with ECG: 0.7933674375710419 with 5 communities
-CSI: 0.5318962281508757
-mu: 0.544066237350506
+ARI with Louvain: 0.3901605186770534 with 7 communities
+ARI with ECG: 0.7270566337183684 with 5 communities
+CSI: 0.5147285348922195
+mu: 0.54165144318597
 ```
 
