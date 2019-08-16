@@ -1,6 +1,10 @@
 # Ensemble-Clustering-for-Graphs
 Code, notebooks and examples with ECG: Ensemble Clustering for Graphs
 
+## Reference papers:
+
+ECG papers: https://rdcu.be/bLn9i and https://arxiv.org/abs/1809.05578
+
 ## Adding ECG to igraph
 
 While it is possible to pip install ECG, one can simply add the following
