@@ -7,7 +7,7 @@ ECG papers: https://rdcu.be/bLn9i and https://arxiv.org/abs/1809.05578
 
 ## Adding ECG to igraph
 
-You can simply import or copy the content of 'lfr.py' into your Notebook.
+You can simply import or copy the content of 'ecg.py' into your Notebook.
 
 It is also possible to pip install ECG, or one can simply add the following
 lines to get ECG in igraph:
