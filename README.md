@@ -7,7 +7,9 @@ ECG papers: https://rdcu.be/bLn9i and https://arxiv.org/abs/1809.05578
 
 ## Adding ECG to igraph
 
-While it is possible to pip install ECG, one can simply add the following
+You can simply import or copy the content of 'lfr.py' into your Notebook.
+
+It is also possible to pip install ECG, or one can simply add the following
 lines to get ECG in igraph:
 
 ```
@@ -24,11 +26,13 @@ def community_ecg(self, weights=None, ens_size=16, min_weight=0.05):
         b = [l[p[x.tuple[0]]]==l[p[x.tuple[1]]] for x in self.es]
         W = [W[i]+b[i] for i in range(len(W))]
     W = [min_weight + (1-min_weight)*W[i]/ens_size for i in range(len(W))]
-    part = self.community_multilevel(weights=W)
     ## Force min_weight outside 2-core
     core = self.shell_index()
     ecore = [min(core[x.tuple[0]],core[x.tuple[1]]) for x in self.es]
-    part.W = [W[i] if ecore[i]>1 else min_weight for i in range(len(ecore))]
+    w = [W[i] if ecore[i]>1 else min_weight for i in range(len(ecore))]
+    part = self.community_multilevel(weights=w)
+    part.W = w
+    part.CSI = 1-2*np.sum([min(1-i,i) for i in w])/len(w)
     return part
 ig.Graph.community_ecg = community_ecg
 
