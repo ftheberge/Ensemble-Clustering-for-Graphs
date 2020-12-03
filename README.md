@@ -1,9 +1,17 @@
 # Ensemble-Clustering-for-Graphs
 Code, notebooks and examples with ECG: Ensemble Clustering for Graphs
 
+This code is now pip installable and integrated with several new measures, see: https://github.com/ftheberge/graph-partition-and-measures
+
 ## Reference papers:
 
-ECG papers: https://rdcu.be/bLn9i and https://arxiv.org/abs/1809.05578
+* Valérie Poulin and François Théberge, Ensemble Clustering for Graphs. in: Aiello L., Cherifi C., Cherifi H., Lambiotte R., Lió P., Rocha L. (eds) Complex Networks and Their Applications VII. COMPLEX NETWORKS 2018. Studies in Computational Intelligence, vol 812. Springer (2019), https://doi.org/10.1007/978-3-030-05411-3_19 or https://link.springer.com/chapter/10.1007/978-3-030-05411-3_19 
+
+* Pre-print: https://arxiv.org/abs/1809.05578
+
+* V. Poulin and F. Théberge, Ensemble clustering for graphs: comparisons and applications, Network Science (2019) 4:51 https://doi.org/10.1007/s41109-019-0162-z or https://rdcu.be/bLn9i
+
+* Pre-print: https://arxiv.org/abs/1903.08012
 
 ## Adding ECG to igraph
 
