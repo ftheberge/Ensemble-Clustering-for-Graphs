@@ -17,36 +17,7 @@ This code is now pip installable and integrated with several new measures, see: 
 
 You can simply import or copy the content of 'ecg.py' into your Notebook.
 
-It is also possible to pip install ECG, or one can simply add the following
-lines to get ECG in igraph:
-
-```
-import igraph as ig
-import numpy as np
-# add ECG to the choice of community algorithms
-def community_ecg(self, weights=None, ens_size=16, min_weight=0.05):
-    W = [0]*self.ecount()
-    ## Ensemble of level-1 Louvain 
-    for i in range(ens_size):
-        p = np.random.permutation(self.vcount()).tolist()
-        g = self.permute_vertices(p)
-        l = g.community_multilevel(weights=weights, return_levels=True)[0].membership
-        b = [l[p[x.tuple[0]]]==l[p[x.tuple[1]]] for x in self.es]
-        W = [W[i]+b[i] for i in range(len(W))]
-    W = [min_weight + (1-min_weight)*W[i]/ens_size for i in range(len(W))]
-    ## Force min_weight outside 2-core
-    core = self.shell_index()
-    ecore = [min(core[x.tuple[0]],core[x.tuple[1]]) for x in self.es]
-    w = [W[i] if ecore[i]>1 else min_weight for i in range(len(ecore))]
-    part = self.community_multilevel(weights=w)
-    part._modularity_params['weights'] = weights
-    part.recalculate_modularity()
-    part.W = w
-    part.CSI = 1-2*np.sum([min(1-i,i) for i in w])/len(w)
-    return part
-ig.Graph.community_ecg = community_ecg
-
-```
+It is also possible to pip install ECG for igraph via: pip install partition-igraph
 
 ## Simple Python Example
 
