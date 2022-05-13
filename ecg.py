@@ -64,6 +64,7 @@ def community_ecg(self, weights=None, ens_size = 16, min_weight = 0.05):
     w = [W[i] if ecore[i]>1 else min_weight for i in range(len(ecore))]
     part = self.community_multilevel(weights=w)
     part._modularity_params['weights'] = weights
+    part.recalculate_modularity()
     part.W = w
     part.CSI = 1-2*np.sum([min(1-i,i) for i in w])/len(w)
     return part

@@ -28,6 +28,7 @@ def community_ecg(self, weights=None, ens_size=16, min_weight=0.05):
     W = [min_weight + (1-min_weight)*W[i]/ens_size for i in range(len(W))]
     part = self.community_multilevel(weights=W)
     part._modularity_params['weights'] = weights
+    part.recalculate_modularity()
     ## Force min_weight outside 2-core
     core = self.shell_index()
     ecore = [min(core[x.tuple[0]],core[x.tuple[1]]) for x in self.es]
